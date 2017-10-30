@@ -1,12 +1,12 @@
 package edu.hm.hafner.analysis.parser;
 
-import java.io.IOException;
-
-import org.junit.jupiter.api.Test;
-
 import edu.hm.hafner.analysis.AbstractParser;
 import edu.hm.hafner.analysis.Issues;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
+
+import static edu.hm.hafner.analysis.AnalysisAssertions.assertThat;
 
 /**
  * Tests the class {@link JSLintParser}.
@@ -22,7 +22,7 @@ public class CssLintParserTest extends ParserTester {
     @Test
     public void testCssLint() throws IOException {
         Issues results = createParser().parse(openFile());
-        assertEquals(51, results.size());
+        assertThat(results).hasSize(51);
     }
 
     /**
